@@ -28,6 +28,19 @@ github:
 # Used for Sitemap.xml and your RSS feed
 url: http://hymerman.github.io
 
+# Includes an icon in the footer for each username you enter
+footer-links:
+  dribbble:
+  email:
+  facebook: ben.hymers
+  flickr:
+  github: hymerman
+  instagram:
+  linkedin: benhymers
+  pinterest:
+  rss: # Set to anything to generate RSS icon. Don't want it though since it just adds unnecessary clutter.
+  twitter: BenHymers
+  stackoverflow: users/40834/ben-hymers
 
 # Your disqus shortname, entering this will enable commenting on posts
 disqus: benhymers
