@@ -28,6 +28,10 @@ github:
 # Used for Sitemap.xml and your RSS feed
 url: http://hymerman.github.io
 
+
+# Your disqus shortname, entering this will enable commenting on posts
+disqus: benhymers
+
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 google_analytics: UA-1548272-4
 
