@@ -23,3 +23,12 @@ version:          1.0.0
 
 github:
   repo:           https://github.com/hymerman/hymerman.github.io
+
+# Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
+# Used for Sitemap.xml and your RSS feed
+url: http://hymerman.github.io
+
+# Use the following plug-ins
+gems:
+  - jemoji # Emoji please!
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
