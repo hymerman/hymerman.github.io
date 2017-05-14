@@ -6,7 +6,7 @@ title:            Ben Hymers
 tagline:          "Ben Hymers' website"
 description:      'Technical Director and co-founder of Two Point Studios, a video game development studio'
 url:              http://hymerman.github.io
-baseurl:          /
+baseurl:          ""
 
 author:
   name:           'Ben Hymers'
