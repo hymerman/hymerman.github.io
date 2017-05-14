@@ -5,7 +5,7 @@ permalink:        pretty
 title:            Ben Hymers
 tagline:          "Ben Hymers' website"
 description:      'Technical Director and co-founder of Two Point Studios, a video game development studio'
-url:              http://hymerman.github.io
+url:              http://blog.benhymers.com
 baseurl:
 
 author:
@@ -22,7 +22,7 @@ github:
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: http://hymerman.github.io
+url: http://blog.benhymers.com
 
 # Includes an icon in the footer for each username you enter
 footer-links:
