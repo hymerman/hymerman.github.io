@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Edit Post</title>
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/screen.css" />
+  
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/pygments_friendly.css" />
+  
+  <link rel="alternate" type="application/atom+xml" 
+	href="/feeds/atom.xml" />
+  <link rel="SHORTCUT ICON" href="/static/default/favicon.ico"/>
+  <link rel="SHORTCUT ICON" href="/favicon.ico"/>
+  
+
+  
+
+  
+</head>
+<body>
+	<div id="header-wrap"><div id="header" class="container_16">						
+		<h1 id="logo-text"><a href="/" title="">Ben&#39;s blog</a></h1>		
+		<p id="intro">Software development, games, and all that jazz</p>
+		<div  id="nav">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/archive/">Archive</a></li>
+        
+  <li><a href="/admin/posts">Posts</a></li>
+  <li><a href="/admin/pages">Pages</a></li>
+
+			</ul>
+		</div>		
+		<div id="header-image"></div> 
+    <form id="quick-search" action="/search" method="get">
+      <p>
+        <label for="q">Search:</label>
+        <input type="hidden" name="cref" value="http://blog.benhymers.com/cse.xml" />
+        <input type="hidden" name="cof" value="FORID:11" />
+        <input type="hidden" name="ie" value="UTF-8" />
+        <input class="tbox" type="text" name="q" id="q" size="31" />
+        <input class="btn" type="image" name="sa" value="Search" src="/static/default/images/search.gif" alt="Search" />
+      </p>
+    </form>
+    <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=quick-search&amp;lang=en"></script>
+	</div></div>
+	<div id="content-outer"><div id="content-wrapper" class="container_16">
+		<div id="main" class="grid_12">
+      
+  <h2>Edit Post</h2>
+  <form method="post" action="">
+    <table>
+      <tr><th><label for="name">Title:</label></th><td><input type="text" id="name" value="Another fresh start" name="title" /></td></tr>
+<tr><th><label for="message">Body:</label></th><td><textarea rows="10" cols="20" name="body" id="message">&lt;p&gt;Let&#39;s just gloss over the massive irony of the last post and skip on to pointing out the obvious; I&#39;ve moved my blog again! I&#39;m now using Google AppEngine to host it, using a piece of software called &lt;a href=&quot;http://github.com/Arachnid/bloggart&quot;&gt;Bloggart&lt;/a&gt;. I&#39;ve done this for a few reasons: mostly it&#39;s the scalability and reliability that comes with Google&#39;s clever virtualisation technology, but also it&#39;s that I won&#39;t have to pay for hosting until this site becomes &lt;em&gt;very&lt;/em&gt; popular! To you, all this means is that the site should have less downtime and be faster to load, even when it&#39;s getting absolutely hammered (which is roughly never). I wanted to get the blog moved over to the new software and new snappy domain (&lt;a href=&quot;http://blog.benhymers.com&quot;&gt;blog.benhymers.com&lt;/a&gt;) before I wrote any more content, as the more readers I have the more of a pain it will be to move in future.&lt;/p&gt;
+
+&lt;p&gt;Obviously there are some kinks to work out. First is that most of the old post&#39;s formatting was lost in the transition - paragraphs and styles are mostly missing, code snippets and anything that looked like HTML is all wonky, and images appear inline and break things a lot. I&#39;ll be going through old posts and fixing them up soon.&lt;/p&gt;
+
+&lt;p&gt;Second is that I&#39;m still using Bloggart&#39;s theme - see &lt;a href=&quot;http://blog.notdot.net/&quot;&gt;Nick Johnson, the author&lt;/a&gt;&#39;s blog and notice the similarities to this site! I&#39;ll be customising that too in the coming days (let&#39;s be realistic... I mean months).&lt;/p&gt;
+
+&lt;p&gt;Third is that the nice interface I had with Wordpress is now gone, and replaced by a text box in which I type in raw HTML (or Textile, MarkDown or ReStructuredText, but I know HTML better...). So I&#39;ve gone back a few steps usability-wise, but none of that really impacts you.&lt;/p&gt;
+
+&lt;p&gt;Still, most of what I had before is working here, and some of it is even better. Take the comments for example, they&#39;re now using &lt;a href=&quot;http://disqus.com&quot;&gt;Disqus&lt;/a&gt;, which means much more useful functionality for you, and some tasty social networking features which I hear are all the rage in these modern times. I&#39;ve ported over the comments from the old blog so if you have a Disqus profile already you may want to &#39;claim&#39; those posts. Note that the formatting of comments has also been cocked up but there&#39;s much less I can do about that, sadly!&lt;/p&gt;
+
+&lt;p&gt;As for Cities in the Sky, I haven&#39;t been twiddling my thumbs since September (I&#39;ve actually made 22 commits since then according to git) so I&#39;ll likely be posting about that shortly. I&#39;ve kind of been putting off writing about it since it felt like it would be a waste given that I was planning to move the blog!&lt;/p&gt;
+
+&lt;p&gt;Right, that&#39;s it for now. Remember to update your feeds and bookmarks and so on - I&#39;ll leave the old site up until hosting runs out (in May 2011 apparently!) or people completely stop visiting it, then it&#39;ll either redirect here or be used as a main page for CITS.&lt;/p&gt;
+
+&lt;p&gt;That is all.&lt;/p&gt;</textarea></td></tr>
+<tr><th><label for="id_tags">Tags:</label></th><td><textarea id="id_tags" rows="5" cols="20" name="tags">website</textarea></td></tr>
+<tr><th><label for="id_body_markup">Body markup:</label></th><td><select name="body_markup" id="id_body_markup">
+<option value="txt">Plain Text</option>
+<option value="textile">Textile</option>
+<option value="html" selected="selected">HTML</option>
+<option value="markdown">Markdown</option>
+<option value="rst">ReStructuredText</option>
+</select></td></tr>
+<tr><th><label for="id_draft">Draft:</label></th><td><input type="checkbox" name="draft" id="id_draft" /></td></tr>
+    </table>
+    <input type="submit" value="Submit post" />
+  </form>
+
+		</div>
+		<div id="left-columns" class="grid_4">
+      
+
+     
+
+
+
+
+		</div>		
+	</div></div>
+	<div id="footer-wrapper" class="container_16">
+		<div id="footer-bottom">
+			<p class="bottom-left">			
+			&nbsp; &copy; Ben Hymers &nbsp; &nbsp;
+			Design by : <a href="http://www.styleshout.com/">styleshout</a>												
+			</p>	
+			<p class="bottom-right" >
+				<a href="/">Home</a> |
+        <a href="
+	        /feeds/atom.xml
+	      ">Atom</a> |
+				<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | 
+		   	<a href="http://validator.w3.org/check/referer">XHTML</a>
+			</p>
+		</div>	
+	</div>
+
+</body>
+</html>

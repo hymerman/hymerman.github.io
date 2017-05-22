@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Edit Post</title>
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/screen.css" />
+  
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/pygments_friendly.css" />
+  
+  <link rel="alternate" type="application/atom+xml" 
+	href="/feeds/atom.xml" />
+  <link rel="SHORTCUT ICON" href="/static/default/favicon.ico"/>
+  <link rel="SHORTCUT ICON" href="/favicon.ico"/>
+  
+
+  
+
+  
+</head>
+<body>
+	<div id="header-wrap"><div id="header" class="container_16">						
+		<h1 id="logo-text"><a href="/" title="">Ben&#39;s blog</a></h1>		
+		<p id="intro">Software development, games, and all that jazz</p>
+		<div  id="nav">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/archive/">Archive</a></li>
+        
+  <li><a href="/admin/posts">Posts</a></li>
+  <li><a href="/admin/pages">Pages</a></li>
+
+			</ul>
+		</div>		
+		<div id="header-image"></div> 
+    <form id="quick-search" action="/search" method="get">
+      <p>
+        <label for="q">Search:</label>
+        <input type="hidden" name="cref" value="http://blog.benhymers.com/cse.xml" />
+        <input type="hidden" name="cof" value="FORID:11" />
+        <input type="hidden" name="ie" value="UTF-8" />
+        <input class="tbox" type="text" name="q" id="q" size="31" />
+        <input class="btn" type="image" name="sa" value="Search" src="/static/default/images/search.gif" alt="Search" />
+      </p>
+    </form>
+    <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=quick-search&amp;lang=en"></script>
+	</div></div>
+	<div id="content-outer"><div id="content-wrapper" class="container_16">
+		<div id="main" class="grid_12">
+      
+  <h2>Edit Post</h2>
+  <form method="post" action="">
+    <table>
+      <tr><th><label for="name">Title:</label></th><td><input type="text" id="name" value="Typical &quot;I&#39;m not dead&quot; post" name="title" /></td></tr>
+<tr><th><label for="message">Body:</label></th><td><textarea rows="10" cols="20" name="body" id="message">&lt;p&gt;Honestly, I&#39;m not dead, I&#39;m just being quiet. I haven&#39;t posted for a while because the Simul Weather evaluation ran out so I haven&#39;t got anything pretty to post screenshots of!&lt;/p&gt;
+
+&lt;p&gt;I just thought I&#39;d update you with some of the goings on, however uninteresting they may be to anyone but me.&lt;/p&gt;
+
+&lt;p&gt;Game-wise, I&#39;ve been fixing up some bugs that have been around for a while. I finally got annoyed by them enough to kill them off. For example, previously you could only play the game once; if you chose &#39;play&#39; from the menu a second time the game would crash. That&#39;s because Ogre rather annoyingly requires you to give a unique string identifier to &lt;em&gt;everything&lt;/em&gt;, and throws a wobbly if you use the same name twice. There are no other options. So I implemented the simplest and most effective solution I could think of: using the &#39;this&#39; pointer converted to a string as the name.&lt;/p&gt;
+
+&lt;p&gt;Programming-wise I&#39;ve been improving the quality of the code (I just got &lt;a href=&quot;http://www.amazon.co.uk/Effective-Specific-Programs-Professional-Computing/dp/0321334876/ref=sr_1_1?ie=UTF8&amp;s=books&amp;qid=1224538976&amp;sr=8-1&quot;&gt;Effective C++&lt;/a&gt; by Scott Meyers and it looks like there are one or two things I didn&#39;t know!). I&#39;ve also been writing some more unit tests, which has been surprisingly fun. I like seeing the number of tests slowly rising in Pulse. It&#39;s like a little safety-ometer.&lt;/p&gt;
+
+&lt;p&gt;System-wise I&#39;ve been investigating another build tool (partly because I need to for work, partly because I&#39;m still unsatisfied with every other tool out there). I&#39;ve always known Jam has been a good tool, but haven&#39;t tried it myself since I know it&#39;s unsupported and out-of-date. Recently though there was a discussion on the &lt;a href=&quot;http://lists.midnightryder.com/listinfo.cgi/sweng-gamedev-midnightryder.com&quot;&gt;sweng-gamedev&lt;/a&gt; mailing list about resurrecting Jam, and one kind soul, Joshua Jensen, has started maintaining a modified version of Jam called &lt;a href=&quot;http://redmine.jamplex.org/projects/show/jamplus&quot;&gt;JamPlus&lt;/a&gt;. I&#39;ve tried it out a little and found it to be blazingly fast, and it scales excellently with the number of processors you have, which beats Visual Studio&#39;s project-level parallelism hands-down. I&#39;ll be seeing if I can write some Jam scripts for CITS soon.&lt;/p&gt;
+
+&lt;p&gt;Since JamPlus uses &lt;a href=&quot;http://git.or.cz/&quot;&gt;git&lt;/a&gt; for source control, I&#39;ve also been investigating that, and it sounds pretty interesting. I can&#39;t see it improving things for me since my project has only one author, but for larger teams it&#39;d be great, and would solve a lot of the problems I&#39;ve experienced at work (mostly due to the awkwardness of branching, and some terrible diff tools).&lt;/p&gt;
+
+&lt;p&gt;So, next on the agenda game-wise will be a new UI. That&#39;s more than it sounds, as it&#39;ll also make the current &#39;menu&#39; (press &#39;p&#39; to play...) and the highscore entry (you&#39;re always Anonymous...) usable, as well as improving the in-game information display both in looks and functionality. Should be an interesting and worthwhile change, anyway.&lt;/p&gt;
+
+&lt;p&gt;Hmm. That&#39;s a surprisingly large amount of text for such a small amount of information.&lt;/p&gt;</textarea></td></tr>
+<tr><th><label for="id_tags">Tags:</label></th><td><textarea id="id_tags" rows="5" cols="20" name="tags">cities-in-the-sky</textarea></td></tr>
+<tr><th><label for="id_body_markup">Body markup:</label></th><td><select name="body_markup" id="id_body_markup">
+<option value="txt">Plain Text</option>
+<option value="textile">Textile</option>
+<option value="html" selected="selected">HTML</option>
+<option value="markdown">Markdown</option>
+<option value="rst">ReStructuredText</option>
+</select></td></tr>
+<tr><th><label for="id_draft">Draft:</label></th><td><input type="checkbox" name="draft" id="id_draft" /></td></tr>
+    </table>
+    <input type="submit" value="Submit post" />
+  </form>
+
+		</div>
+		<div id="left-columns" class="grid_4">
+      
+
+     
+
+
+
+
+		</div>		
+	</div></div>
+	<div id="footer-wrapper" class="container_16">
+		<div id="footer-bottom">
+			<p class="bottom-left">			
+			&nbsp; &copy; Ben Hymers &nbsp; &nbsp;
+			Design by : <a href="http://www.styleshout.com/">styleshout</a>												
+			</p>	
+			<p class="bottom-right" >
+				<a href="/">Home</a> |
+        <a href="
+	        /feeds/atom.xml
+	      ">Atom</a> |
+				<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | 
+		   	<a href="http://validator.w3.org/check/referer">XHTML</a>
+			</p>
+		</div>	
+	</div>
+
+</body>
+</html>

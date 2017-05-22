@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Edit Post</title>
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/screen.css" />
+  
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/pygments_friendly.css" />
+  
+  <link rel="alternate" type="application/atom+xml" 
+	href="/feeds/atom.xml" />
+  <link rel="SHORTCUT ICON" href="/static/default/favicon.ico"/>
+  <link rel="SHORTCUT ICON" href="/favicon.ico"/>
+  
+
+  
+
+  
+</head>
+<body>
+	<div id="header-wrap"><div id="header" class="container_16">						
+		<h1 id="logo-text"><a href="/" title="">Ben&#39;s blog</a></h1>		
+		<p id="intro">Software development, games, and all that jazz</p>
+		<div  id="nav">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/archive/">Archive</a></li>
+        
+  <li><a href="/admin/posts">Posts</a></li>
+  <li><a href="/admin/pages">Pages</a></li>
+
+			</ul>
+		</div>		
+		<div id="header-image"></div> 
+    <form id="quick-search" action="/search" method="get">
+      <p>
+        <label for="q">Search:</label>
+        <input type="hidden" name="cref" value="http://blog.benhymers.com/cse.xml" />
+        <input type="hidden" name="cof" value="FORID:11" />
+        <input type="hidden" name="ie" value="UTF-8" />
+        <input class="tbox" type="text" name="q" id="q" size="31" />
+        <input class="btn" type="image" name="sa" value="Search" src="/static/default/images/search.gif" alt="Search" />
+      </p>
+    </form>
+    <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=quick-search&amp;lang=en"></script>
+	</div></div>
+	<div id="content-outer"><div id="content-wrapper" class="container_16">
+		<div id="main" class="grid_12">
+      
+  <h2>Edit Post</h2>
+  <form method="post" action="">
+    <table>
+      <tr><th><label for="name">Title:</label></th><td><input type="text" id="name" value="Migrating from Subversion to git" name="title" /></td></tr>
+<tr><th><label for="message">Body:</label></th><td><textarea rows="10" cols="20" name="body" id="message">&lt;p&gt;One of the things I&#39;ve been busy with is migrating Cities in the Sky&#39;s source control from Subversion to &lt;a href=&quot;http://git-scm.com/&quot;&gt;git&lt;/a&gt;. I&#39;ll go over the reasons in full in a later post, but in a nutshell, git supports my workflow better than Subversion since it is distributed and supports fast branching and merging.&lt;/p&gt;
+
+&lt;p&gt;Now, there are some good guides dotted around the net which deal with migrating from Subversion to git, and with setting up a git server in a secure and maintainable manner, but I found them lacking a little in friendliness and details. There are also a lot of blog posts that more or less copy those guides and add in nothing of their own, sometimes to cheaply draw visitors to their sites, sometimes &quot;in case I forget where the original is&quot;, and sometimes just for the hell of it. Rather than add that little bit more redundancy to the Internet, I thought I&#39;d write up a friendly explanation about just what these guides are doing, along with some extra advice I discovered to be useful.&lt;/p&gt;
+
+&lt;h3&gt;Installing git and git-svn&lt;/h3&gt;
+&lt;p&gt;So let&#39;s get started! The first step is creating a git repository from your Subversion repository, which is made pretty easy through the use of git-svn, which is a tool for using git locally with a remote Subversion repository. I&#39;m going to go ahead and assume you&#39;re using some flavour of Linux - I&#39;m using Ubuntu. I believe git-svn is supposed to be installed as part of git, but for whatever reason it isn&#39;t on Ubuntu, so to install git and git-svn I had to do this:&lt;/p&gt;
+
+&lt;code&gt;sudo apt-get install git-core git-svn&lt;/code&gt;
+
+&lt;h3&gt;Converting your repository from Subversion to git&lt;/h3&gt;
+&lt;p&gt;Once you have installed git and git-svn, follow &lt;a href=&quot;http://www.simplisticcomplexity.com/2008/03/05/cleanly-migrate-your-subversion-repository-to-a-git-repository/&quot;&gt;this guide&lt;/a&gt; on Simplistic Complexity and you&#39;ll have a local git repository containing the full history of your Subversion repository with all the Subversion users mapped to git users. This bit is pretty easy, so the only piece of advice I have for this step is that in the users file you can add entries even for those &#39;no author&#39; commits - just use the exact string Subversion reports as the author of the commit. For example, my users file looked like this:&lt;/p&gt;
+
+&lt;code&gt;Ben = Ben Hymers &amp;lt;my.email@host.com&amp;gt;
+ben = Ben Hymers &amp;lt;my.email@host.com&amp;gt;
+(no author) = Ben Hymers &amp;lt;my.email@host.com&amp;gt;
+root = Ben Hymers &amp;lt;my.email@host.com&amp;gt;&lt;/code&gt;
+
+&lt;p&gt;There will often be odd users like these near the beginning of a project&#39;s history, from the initial import or just before proper authentication was set up. Including these lines &#39;fixes&#39; the history for the git repository.&lt;/p&gt;
+
+&lt;h3&gt;Securely serving your git repository&lt;/h3&gt;
+&lt;p&gt;The next step is to set up your server to serve your new git repository securely, since at the moment it is just on the local filesystem and will only be available to users that have permission to access the directory. Read through the excellent directions in &lt;a href=&quot;http://scie.nti.st/2007/11/14/hosting-git-repositories-the-easy-and-secure-way&quot;&gt;this article&lt;/a&gt; on scie.nti.st. If you understood them perfectly then go ahead and use them, if not then read on!&lt;/p&gt;
+
+&lt;h3&gt;Some background knowledge&lt;/h3&gt;
+&lt;p&gt;It&#39;s probably helpful to mention that a git repository is basically just a directory, which contains metadata and a big load of compressed bits and bobs which comprise the data of your project over its history, and optionally a working copy. If it has a working copy, which is typically the case when you&#39;re a developer doing some work on the repository, the git data will be stored in &#39;.git/&#39; in the root of your project, whilst the working copy will be present as normal. If it doesn&#39;t have a working copy, it is what&#39;s called a &#39;bare&#39; repository, which is typically what a server will use as it has no need to modify anything, and the git data will just be stored straight in the directory. A &#39;git server&#39; then is some process that makes this directory available to others via something other than just the filesystem.&lt;/p&gt;
+
+&lt;p&gt;The way we&#39;re going to serve up the git repository is via SSH. Once it&#39;s set up, commands you issue to git that require the address of the repository (clone, push and so on) will cause git to SSH into the server machine, to the directory that is the git repository, to perform their monkey business.&lt;/p&gt;
+
+&lt;p&gt;I hadn&#39;t really used SSH before this so it was all quite alien to me, but there are plenty of articles on SSH and public key authentication on the web; I suggest you read one of those to understand why we&#39;re creating keys, how they&#39;re used, and what they mean.&lt;/p&gt;
+
+&lt;p&gt;We set up a user called &#39;git&#39; who will own all the repositories. We do this so we can keep the permissions as specific as possible (if a user is compromised, damage is limited) and to avoid having to set up a user on the server and grant them permissions to the appropriate git repositories every time a new external user wants access. Instead, all access to the git repositories will be done via the git user - external users will SSH into the server as user &#39;git&#39;.&lt;/p&gt;
+
+&lt;p&gt;It&#39;s also handy to know that git repositories are commonly named with the suffix &#39;.git&#39;, to show that the directory is a git repository. It&#39;s like a file extension for directories.&lt;/p&gt;
+
+&lt;p&gt;Finally, the git documentation says that addresses of the form &quot;[user@]host.xz:path/to/repo.git&quot; are equivalent to addresses of the form &quot;ssh://[user@]host.xz/~/path/to/repo.git&quot;.&lt;/p&gt;
+
+&lt;p&gt;So, with those nuggets of knowledge in hand it becomes a bit clearer what lines like &quot;&lt;code&gt;git clone git@my_server:my_repository.git&lt;/code&gt;&quot; mean. &#39;&lt;code&gt;git clone&lt;/code&gt;&#39; is the command to clone a repository given as the argument. The strange-looking address can actually be reinterpreted as &quot;ssh://git@my_server/~/my_repository.git&quot;. Breaking that apart, we see that we are connecting using the SSH protocol as user &#39;git&#39; to &#39;my_server&#39;, in the directory &#39;~/my_repository.git&#39;. &#39;~&#39; is unix shorthand for the home directory, and since we are connecting as user &#39;git&#39; this will be git&#39;s home, which is where the repository resides. Isn&#39;t that clever?&lt;/p&gt;
+
+&lt;h3&gt;Setting up gitosis&lt;/h3&gt;
+&lt;p&gt;Now, what&#39;s this gitosis stuff all about, and how does it help you create and maintain git repositories? Well, you could create the git user, and log in as git to add users&#39; keys and to create repositories in your home directory yourself, but that would get a bit tedious, and quite tricky when you have multiple repositories that each have different permissions. Gitosis automates all that, and hosts the configuration via git in a clever recursive manner.&lt;/p&gt;
+
+&lt;p&gt;Follow the commands in the first section of the article linked above and you&#39;ll have checked out (via git) the gitosis config, ready to create repositories and authenticate users. Note that initially there will only be one user able to access the configuration - the user whose public key you initially gave to gitosis - which is nice and safe. It doesn&#39;t have to be someone local to the server. Configuration is pretty simple - there is a directory for public keys, into which you place keys you collect from users&#39; machines. Then there is a configuration file, in which you list groups, which consist of users that are members, and permissions to repositories. Repositories are created implicitly - list one as writeable by some group, and after you commit the config changes it will exist and you can start pushing to it.&lt;/p&gt;
+
+&lt;p&gt;So, to add a user, get them to generate a public key and give it to you. You then name the key appropriately (e.g. &quot;ben@windowsmachine.pub&quot;) and place it in keydir/. Find or create a group that has the permissions you want the user to have, and add the name of the public key file (without the .pub extension) to the &#39;users&#39; section of that group.&lt;/p&gt;
+
+&lt;p&gt;If you want to allow more people access to the configuration, do the same and add them to the default &#39;gitosis-admin&#39; group, which has write access to the gitosis-admin repository, the one you are editing. You won&#39;t want to go doing this too much for security purposes, but I did it to grant myself access from my other machines. Commit your changes and gitosis will update its configuration automagically.&lt;/p&gt;
+
+&lt;p&gt;The only advice I need to give on setting up gitosis is to follow the directions &lt;em&gt;exactly&lt;/em&gt;, to the letter. A little knowledge is a dangerous thing, and since I have a little knowledge I ended up skipping out some commands or doing them my way since I thought I knew what I was doing, and as a result ended up undoing and redoing most of those steps several times until I realised I&#39;d broken the whole thing and had to start from the very beginning.&lt;/p&gt;
+
+&lt;h3&gt;Tying it all together&lt;/h3&gt;
+&lt;p&gt;To tie these two steps together - converting your repository from Subersion to git, and hosting it via gitosis - you just need to push your new git repository to one you have listed in your gitosis config. You can either do this by giving the address of the repository to the push command, like so:&lt;/p&gt;
+
+&lt;code&gt;git push git@my_server:my_repository.git&lt;/code&gt;
+
+&lt;p&gt;Or you can add a &#39;remote&#39; to your git config so push has a &#39;default&#39; place to push to, like so:&lt;/p&gt;
+
+&lt;code&gt;git remote rm origin
+git remote add origin git@my_server:my_repository.git
+git push&lt;/code&gt;
+
+&lt;p&gt;We remove the remote &#39;origin&#39; first since it&#39;ll likely already be set to the location of the git-svn repository you cloned from, and there&#39;s little point pushing back to that one! &#39;origin&#39; is as it sounds - where the repository was cloned from - and is the default remote to push to. There are plenty of other rules that determine what &#39;default&#39; means but none will apply unless you&#39;ve done anything other than what&#39;s listed here! Consult the &lt;a href=&quot;http://www.kernel.org/pub/software/scm/git/docs/git-remote.html&quot;&gt;git-remote&lt;/a&gt; and &lt;a href=&quot;http://www.kernel.org/pub/software/scm/git/docs/git-push.html&quot;&gt;git-push&lt;/a&gt; documentation for more details.&lt;/p&gt;
+
+&lt;p&gt;From then on it&#39;s business as usual, and you can use whatever git workflow you fancy. Since you&#39;ve just converted from Subversion you&#39;re probably used to the checkout -&gt; edit -&gt; update/merge -&gt; commit workflow, in which case you&#39;ll probably want to mimic that until you get used to git and want to try out anything crazy. I found the &lt;a href=&quot;http://git.or.cz/course/svn.html&quot;&gt;Git - SVN Crash Course&lt;/a&gt; useful for this.&lt;/p&gt;
+
+&lt;p&gt;There you have it then; hopefully with the combination of the articles I have linked and the extra explanation of what they are doing I have given, you will be able to migrate from Subversion to git in a secure and maintainable way with ease. Good luck!&lt;/p&gt;</textarea></td></tr>
+<tr><th><label for="id_tags">Tags:</label></th><td><textarea id="id_tags" rows="5" cols="20" name="tags">development</textarea></td></tr>
+<tr><th><label for="id_body_markup">Body markup:</label></th><td><select name="body_markup" id="id_body_markup">
+<option value="txt">Plain Text</option>
+<option value="textile">Textile</option>
+<option value="html" selected="selected">HTML</option>
+<option value="markdown">Markdown</option>
+<option value="rst">ReStructuredText</option>
+</select></td></tr>
+<tr><th><label for="id_draft">Draft:</label></th><td><input type="checkbox" name="draft" id="id_draft" /></td></tr>
+    </table>
+    <input type="submit" value="Submit post" />
+  </form>
+
+		</div>
+		<div id="left-columns" class="grid_4">
+      
+
+     
+
+
+
+
+		</div>		
+	</div></div>
+	<div id="footer-wrapper" class="container_16">
+		<div id="footer-bottom">
+			<p class="bottom-left">			
+			&nbsp; &copy; Ben Hymers &nbsp; &nbsp;
+			Design by : <a href="http://www.styleshout.com/">styleshout</a>												
+			</p>	
+			<p class="bottom-right" >
+				<a href="/">Home</a> |
+        <a href="
+	        /feeds/atom.xml
+	      ">Atom</a> |
+				<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | 
+		   	<a href="http://validator.w3.org/check/referer">XHTML</a>
+			</p>
+		</div>	
+	</div>
+
+</body>
+</html>

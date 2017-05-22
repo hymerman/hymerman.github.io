@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Edit Post</title>
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/screen.css" />
+  
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/pygments_friendly.css" />
+  
+  <link rel="alternate" type="application/atom+xml" 
+	href="/feeds/atom.xml" />
+  <link rel="SHORTCUT ICON" href="/static/default/favicon.ico"/>
+  <link rel="SHORTCUT ICON" href="/favicon.ico"/>
+  
+
+  
+
+  
+</head>
+<body>
+	<div id="header-wrap"><div id="header" class="container_16">						
+		<h1 id="logo-text"><a href="/" title="">Ben&#39;s blog</a></h1>		
+		<p id="intro">Software development, games, and all that jazz</p>
+		<div  id="nav">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/archive/">Archive</a></li>
+        
+  <li><a href="/admin/posts">Posts</a></li>
+  <li><a href="/admin/pages">Pages</a></li>
+
+			</ul>
+		</div>		
+		<div id="header-image"></div> 
+    <form id="quick-search" action="/search" method="get">
+      <p>
+        <label for="q">Search:</label>
+        <input type="hidden" name="cref" value="http://blog.benhymers.com/cse.xml" />
+        <input type="hidden" name="cof" value="FORID:11" />
+        <input type="hidden" name="ie" value="UTF-8" />
+        <input class="tbox" type="text" name="q" id="q" size="31" />
+        <input class="btn" type="image" name="sa" value="Search" src="/static/default/images/search.gif" alt="Search" />
+      </p>
+    </form>
+    <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=quick-search&amp;lang=en"></script>
+	</div></div>
+	<div id="content-outer"><div id="content-wrapper" class="container_16">
+		<div id="main" class="grid_12">
+      
+  <h2>Edit Post</h2>
+  <form method="post" action="">
+    <table>
+      <tr><th><label for="name">Title:</label></th><td><input type="text" id="name" value="Pies" name="title" /></td></tr>
+<tr><th><label for="message">Body:</label></th><td><textarea rows="10" cols="20" name="body" id="message">&lt;p&gt;Allo!
+
+&lt;p&gt;Well, I figure I should probably get back into the swing of things now. I should probably also explain why I haven&#39;t been &lt;em&gt;in&lt;/em&gt; the swing of things too.&lt;/p&gt;
+
+&lt;p&gt;A month and a bit ago I thought it&#39;d be a great idea to reformat my main computer to install a couple more operating systems and to clean out the crap that always seems to have accumulated in Windows after about half a year or so. It should have been dead straight-forward, but instead resulted in hair-pulling frustration and a lot of CDs in the bin. After several nearly-working installations of XP and Vista I discovered (through use of a helpful little tool called &lt;a href=&quot;http://www.memtest.org/&quot;&gt;memtest86+&lt;/a&gt;) that my RAM had somehow become broken, at the exact same time that my DVD drive broke. This wiped out about two weeks through experimenting, waiting for things to arrive, experimenting again, waiting for more things to arrive, and finally setting up four (yup) operating systems.&lt;/p&gt;
+
+&lt;p&gt;Then once I&#39;d gotten my development environment all up and running with the latest versions of my dependencies (Ogre, UnitTest++ etc.) I found out that, in a nutshell, Ant is rubbish for C++ projects. I already suspected this since after making the build scripts work cross-platform they looked quite grotesque (XML doesn&#39;t express logic well...), but the final nail in the coffin was the &lt;a href=&quot;http://sourceforge.net/forum/forum.php?thread_id=2108512&amp;forum_id=113701&quot;&gt;ridiculous bug&lt;/a&gt; that causes builds to continually slow down until they eventually stop. After asking on the project&#39;s forum, I was directed to a patch written in 2003 that would fix it. Having to apply a patch from half a decade ago to get things back to their previous level of slowness is just stupid, so I spent a while setting up some different MSVC project files and rejigging the way CITS is built. That all took about a week (spare time only, remember).&lt;/p&gt;
+
+&lt;p&gt;Then the new version of &lt;a href=&quot;http://www.bay12games.com/dwarves/&quot;&gt;Dwarf Fortress&lt;/a&gt; came out.&lt;/p&gt;
+
+&lt;p&gt;Then my lovely girlfriend and I went on holiday to Vienna for four days, which was nice.&lt;/p&gt;
+
+&lt;p&gt;Now we&#39;re back though, and I&#39;m ready to get on with things. Since in the plane I saw a lot of clouds and decided they were &lt;em&gt;awesome&lt;/em&gt;, I may well go about revamping the sky a bit since it still looks rubbish to me. I know it&#39;s not very important, but you guys have been deprived of screenshots for so long!&lt;/p&gt;</textarea></td></tr>
+<tr><th><label for="id_tags">Tags:</label></th><td><textarea id="id_tags" rows="5" cols="20" name="tags">life</textarea></td></tr>
+<tr><th><label for="id_body_markup">Body markup:</label></th><td><select name="body_markup" id="id_body_markup">
+<option value="txt">Plain Text</option>
+<option value="textile">Textile</option>
+<option value="html" selected="selected">HTML</option>
+<option value="markdown">Markdown</option>
+<option value="rst">ReStructuredText</option>
+</select></td></tr>
+<tr><th><label for="id_draft">Draft:</label></th><td><input type="checkbox" name="draft" id="id_draft" /></td></tr>
+    </table>
+    <input type="submit" value="Submit post" />
+  </form>
+
+		</div>
+		<div id="left-columns" class="grid_4">
+      
+
+     
+
+
+
+
+		</div>		
+	</div></div>
+	<div id="footer-wrapper" class="container_16">
+		<div id="footer-bottom">
+			<p class="bottom-left">			
+			&nbsp; &copy; Ben Hymers &nbsp; &nbsp;
+			Design by : <a href="http://www.styleshout.com/">styleshout</a>												
+			</p>	
+			<p class="bottom-right" >
+				<a href="/">Home</a> |
+        <a href="
+	        /feeds/atom.xml
+	      ">Atom</a> |
+				<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | 
+		   	<a href="http://validator.w3.org/check/referer">XHTML</a>
+			</p>
+		</div>	
+	</div>
+
+</body>
+</html>

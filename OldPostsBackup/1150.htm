@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Edit Post</title>
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/screen.css" />
+  
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/pygments_friendly.css" />
+  
+  <link rel="alternate" type="application/atom+xml" 
+	href="/feeds/atom.xml" />
+  <link rel="SHORTCUT ICON" href="/static/default/favicon.ico"/>
+  <link rel="SHORTCUT ICON" href="/favicon.ico"/>
+  
+
+  
+
+  
+</head>
+<body>
+	<div id="header-wrap"><div id="header" class="container_16">						
+		<h1 id="logo-text"><a href="/" title="">Ben&#39;s blog</a></h1>		
+		<p id="intro">Software development, games, and all that jazz</p>
+		<div  id="nav">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/archive/">Archive</a></li>
+        
+  <li><a href="/admin/posts">Posts</a></li>
+  <li><a href="/admin/pages">Pages</a></li>
+
+			</ul>
+		</div>		
+		<div id="header-image"></div> 
+    <form id="quick-search" action="/search" method="get">
+      <p>
+        <label for="q">Search:</label>
+        <input type="hidden" name="cref" value="http://blog.benhymers.com/cse.xml" />
+        <input type="hidden" name="cof" value="FORID:11" />
+        <input type="hidden" name="ie" value="UTF-8" />
+        <input class="tbox" type="text" name="q" id="q" size="31" />
+        <input class="btn" type="image" name="sa" value="Search" src="/static/default/images/search.gif" alt="Search" />
+      </p>
+    </form>
+    <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=quick-search&amp;lang=en"></script>
+	</div></div>
+	<div id="content-outer"><div id="content-wrapper" class="container_16">
+		<div id="main" class="grid_12">
+      
+  <h2>Edit Post</h2>
+  <form method="post" action="">
+    <table>
+      <tr><th><label for="name">Title:</label></th><td><input type="text" id="name" value="Surprise!" name="title" /></td></tr>
+<tr><th><label for="message">Body:</label></th><td><textarea rows="10" cols="20" name="body" id="message">&lt;p&gt;Hah, I bet you didn&#39;t think I&#39;d wait this long before posting those interesting things, did you? &lt;em&gt;Did you?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;What I&#39;ve done is had a good ol&#39; rethink of the way the gameplay is going to work. Up until now, the idea has been that individual buildings fall from the sky and get attached to the island when they hit it. If you build on top of an old building, you destroy both the old and the new. Your score was going to be decided on a measure of each building&#39;s quality (depending on where on the island it was placed, and which other buildings were around and so on), multiplied by the number of people, to get a rough measure of the total &#39;happiness&#39; of your population.&lt;/p&gt;
+
+&lt;p&gt;The problem with this is that you&#39;d quickly run out of space and end up being forced to destroy all your old buildings. There would come a time when your island is full, and your task would change from building a nice city to coaxing the physics system into not wrecking everything each time you place a building. Development would be linear, and capped, and I don&#39;t think that would be very fun.&lt;/p&gt;
+
+&lt;p&gt;I went through a few more ideas after this, and after some discussions with the guys at work (that means you Rich!) and an old university chum (that means you Mike!), I&#39;ve come up with something that plays well in my head, which I intend to try out. It&#39;s just a few changes to the old idea, but I think they add up to something quite fun.&lt;/p&gt;
+
+&lt;p&gt;Instead of dropping actual buildings, you now drop pieces which can create buildings, or perform some other function. The main pieces will be &#39;raise&#39; pieces, which will raise whichever buildings they hit (or create them if not present. These buildings will be your ordinary houses, and the idea will be to just have as many of these as high as you can make them. Of course the higher they are the less stable they are. The other main types of pieces will be the special pieces, which build buildings like docks, windmills, farms, mines and so on. These will generally have some criteria for where they can be built - docks at the edge, windmills up high, farms on flat ground - and will sometimes have gameplay effects other than their physical presence - mines will mine out a cavity inside the island gradually which will act as a negative weight, docks will attract merchants which will serve as other physics objects to get in the way.&lt;/p&gt;
+
+&lt;p&gt;Scoring remains cumulative over time, but instead of the previous sum of building scores times population, it will be a general &#39;development&#39; score (which I see being a sum of ordinary buildings and their heights), affected by several multipliers relating to the special pieces. These multipliers will be things like &#39;have 3 docks&#39;, &#39;have 3 windmills&#39;, &#39;have a really tall ordinary building&#39;, and will be shown as greyed out icons next to the score when inactive, and lit up when active, probably with some crazy effects when several of them are acting together.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/38367409@N02/3538791634/&quot; title=&quot;Raise piece by b.hymers, on Flickr&quot;&gt;&lt;img src=&quot;http://farm3.static.flickr.com/2208/3538791634_502267aab1.jpg&quot; width=&quot;500&quot; height=&quot;375&quot; alt=&quot;Raise piece&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I&#39;ve made a start, in that I&#39;ve re-jiggled things to no longer drop buildings but to drop pieces, and I&#39;ve added multi-part pieces (just an &#39;L&#39; shaped raise piece at the moment), and added the base functionality for the raising mechanic (Note that you can also see the temporary Flash-based replacement for the in-game GUI in this screenshot!). In doing all this I&#39;ve learnt some 3D modelling with Blender, which was different. Just today I figured out how to do UV editing and texturing, and exporting that information from Blender into a format that OGRE can use. All that must have appealed to my previously undiscovered inner &lt;em&gt;artiste&lt;/em&gt;, since I then spent a few days learning to use my graphics tablet to do a spot of &#39;digital painting&#39;, but that&#39;s a story for another day!&lt;/p&gt;</textarea></td></tr>
+<tr><th><label for="id_tags">Tags:</label></th><td><textarea id="id_tags" rows="5" cols="20" name="tags">cities-in-the-sky</textarea></td></tr>
+<tr><th><label for="id_body_markup">Body markup:</label></th><td><select name="body_markup" id="id_body_markup">
+<option value="txt">Plain Text</option>
+<option value="textile">Textile</option>
+<option value="html" selected="selected">HTML</option>
+<option value="markdown">Markdown</option>
+<option value="rst">ReStructuredText</option>
+</select></td></tr>
+<tr><th><label for="id_draft">Draft:</label></th><td><input type="checkbox" name="draft" id="id_draft" /></td></tr>
+    </table>
+    <input type="submit" value="Submit post" />
+  </form>
+
+		</div>
+		<div id="left-columns" class="grid_4">
+      
+
+     
+
+
+
+
+		</div>		
+	</div></div>
+	<div id="footer-wrapper" class="container_16">
+		<div id="footer-bottom">
+			<p class="bottom-left">			
+			&nbsp; &copy; Ben Hymers &nbsp; &nbsp;
+			Design by : <a href="http://www.styleshout.com/">styleshout</a>												
+			</p>	
+			<p class="bottom-right" >
+				<a href="/">Home</a> |
+        <a href="
+	        /feeds/atom.xml
+	      ">Atom</a> |
+				<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | 
+		   	<a href="http://validator.w3.org/check/referer">XHTML</a>
+			</p>
+		</div>	
+	</div>
+
+</body>
+</html>

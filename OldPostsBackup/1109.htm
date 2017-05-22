@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Edit Post</title>
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/screen.css" />
+  
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/pygments_friendly.css" />
+  
+  <link rel="alternate" type="application/atom+xml" 
+	href="/feeds/atom.xml" />
+  <link rel="SHORTCUT ICON" href="/static/default/favicon.ico"/>
+  <link rel="SHORTCUT ICON" href="/favicon.ico"/>
+  
+
+  
+
+  
+</head>
+<body>
+	<div id="header-wrap"><div id="header" class="container_16">						
+		<h1 id="logo-text"><a href="/" title="">Ben&#39;s blog</a></h1>		
+		<p id="intro">Software development, games, and all that jazz</p>
+		<div  id="nav">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/archive/">Archive</a></li>
+        
+  <li><a href="/admin/posts">Posts</a></li>
+  <li><a href="/admin/pages">Pages</a></li>
+
+			</ul>
+		</div>		
+		<div id="header-image"></div> 
+    <form id="quick-search" action="/search" method="get">
+      <p>
+        <label for="q">Search:</label>
+        <input type="hidden" name="cref" value="http://blog.benhymers.com/cse.xml" />
+        <input type="hidden" name="cof" value="FORID:11" />
+        <input type="hidden" name="ie" value="UTF-8" />
+        <input class="tbox" type="text" name="q" id="q" size="31" />
+        <input class="btn" type="image" name="sa" value="Search" src="/static/default/images/search.gif" alt="Search" />
+      </p>
+    </form>
+    <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=quick-search&amp;lang=en"></script>
+	</div></div>
+	<div id="content-outer"><div id="content-wrapper" class="container_16">
+		<div id="main" class="grid_12">
+      
+  <h2>Edit Post</h2>
+  <form method="post" action="">
+    <table>
+      <tr><th><label for="name">Title:</label></th><td><input type="text" id="name" value="Crap" name="title" /></td></tr>
+<tr><th><label for="message">Body:</label></th><td><textarea rows="10" cols="20" name="body" id="message">&lt;p&gt;Bloody crapping pile of wank with a cherry on top. I had no idea physics libraries were so crap. I&#39;ve been wading through my code, purging it of everything OPAL and replacing it with Newton bits, and in the process have been finding out just how terrible the library actually is. In OPAL, you set the gravity like so:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sim-&amp;gt;setGravity(opal::vec3r(0,-9.81,0));&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Nice and easy. In Newton, you have to set a custom callback to a function that will be called every update, which adds a force to the object, &lt;em&gt;for every object&lt;/em&gt;. I won&#39;t demonstrate what that looks like in code, just believe me when I say it&#39;s horrible. Anyway, I got all this coded, then ran the app and basically not a lot happened. Stupidly, the world size is set by default to something very piddly indeed, and anything outside the world stops.&lt;/p&gt;
+
+&lt;p&gt;Many problems like this later and I eventually find out that arbitrary meshes (such as my island) can only have infinite mass (ie. they&#39;re immovable). Bloody great.&lt;/p&gt;
+
+&lt;p&gt;So, Newton is rubbish, OPAL/ODE are rubbish, what&#39;s next? PhysX looks good, and it seemed that way until I got hold of the API (After registering with them - all very businesslike). Apparently that can only handle static meshes too. Frankly, I&#39;d be pretty peeved if I was an Xbox 360 developer who&#39;d just paid $50,000 for the library, and discovered I couldn&#39;t simulate anything that&#39;s not a box or a ball. Knobbers.&lt;/p&gt;
+
+&lt;p&gt;Tokamak was next on my list, and was looking good until I again saw the word &#39;static&#39; next to &#39;mesh&#39;, though I only found this after browsing their &lt;a href=&quot;http://tokamak.xwiki.com/xwiki/bin/view/Main/WebHome&quot;&gt;wiki&lt;/a&gt; (which details such classes as &#39;neM4&#39;, &#39;neT&#39; and other cryptically named oddities), their &lt;a href=&quot;http://www.tokamakphysics.com/phpbb/viewforum.php?f=2&quot;&gt;forum&lt;/a&gt; (which details such themes as &#39;amateur cum&#39;, &#39;bukkake movie&#39; and other erotically challenged topics), and their &lt;a href=&quot;http://www.tokamakphysics.com/documentation/&quot;&gt;API documentation&lt;/a&gt; (which I&#39;ll let you look at yourself. HAR!). What a bloody disgrace.&lt;/p&gt;
+
+&lt;p&gt;Bullet is apparently rather good, but I beg to differ- once again, no mesh support beyond ones that can&#39;t move. And there was me thinking physics engines were all about things &lt;em&gt;moving&lt;/em&gt;. Silly me. Anyways, finding this out required a lot of browsing around manually, as they&#39;ve somehow cocked up their website so that their &#39;search&#39; feature simply tells me &quot;you have requested an invalid special page&quot;. Wankers.&lt;/p&gt;
+
+&lt;p&gt;Everything else I can find either has &lt;em&gt;no&lt;/em&gt; support from the developers, costs more money than I&#39;ll ever own, has no mesh support or has been bought by Ageia (the PhysX people). So, where does that leave me.....?&lt;/p&gt;
+
+&lt;p&gt;Back with OPAL. What a huge waste of time. I guess I&#39;ll just have to battle the weird instabilities some more. Or release a buggy, crappy game, I don&#39;t know. Frankly I&#39;m fed up and more than a little disillusioned with the current &#39;state of the art&#39; in physics engines. I think for my next game I&#39;ll just do pong. Night night.&lt;/p&gt;</textarea></td></tr>
+<tr><th><label for="id_tags">Tags:</label></th><td><textarea id="id_tags" rows="5" cols="20" name="tags">cities-in-the-sky</textarea></td></tr>
+<tr><th><label for="id_body_markup">Body markup:</label></th><td><select name="body_markup" id="id_body_markup">
+<option value="txt">Plain Text</option>
+<option value="textile">Textile</option>
+<option value="html" selected="selected">HTML</option>
+<option value="markdown">Markdown</option>
+<option value="rst">ReStructuredText</option>
+</select></td></tr>
+<tr><th><label for="id_draft">Draft:</label></th><td><input type="checkbox" name="draft" id="id_draft" /></td></tr>
+    </table>
+    <input type="submit" value="Submit post" />
+  </form>
+
+		</div>
+		<div id="left-columns" class="grid_4">
+      
+
+     
+
+
+
+
+		</div>		
+	</div></div>
+	<div id="footer-wrapper" class="container_16">
+		<div id="footer-bottom">
+			<p class="bottom-left">			
+			&nbsp; &copy; Ben Hymers &nbsp; &nbsp;
+			Design by : <a href="http://www.styleshout.com/">styleshout</a>												
+			</p>	
+			<p class="bottom-right" >
+				<a href="/">Home</a> |
+        <a href="
+	        /feeds/atom.xml
+	      ">Atom</a> |
+				<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | 
+		   	<a href="http://validator.w3.org/check/referer">XHTML</a>
+			</p>
+		</div>	
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Edit Post</title>
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/screen.css" />
+  
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/pygments_friendly.css" />
+  
+  <link rel="alternate" type="application/atom+xml" 
+	href="/feeds/atom.xml" />
+  <link rel="SHORTCUT ICON" href="/static/default/favicon.ico"/>
+  <link rel="SHORTCUT ICON" href="/favicon.ico"/>
+  
+
+  
+
+  
+</head>
+<body>
+	<div id="header-wrap"><div id="header" class="container_16">						
+		<h1 id="logo-text"><a href="/" title="">Ben&#39;s blog</a></h1>		
+		<p id="intro">Software development, games, and all that jazz</p>
+		<div  id="nav">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/archive/">Archive</a></li>
+        
+  <li><a href="/admin/posts">Posts</a></li>
+  <li><a href="/admin/pages">Pages</a></li>
+
+			</ul>
+		</div>		
+		<div id="header-image"></div> 
+    <form id="quick-search" action="/search" method="get">
+      <p>
+        <label for="q">Search:</label>
+        <input type="hidden" name="cref" value="http://blog.benhymers.com/cse.xml" />
+        <input type="hidden" name="cof" value="FORID:11" />
+        <input type="hidden" name="ie" value="UTF-8" />
+        <input class="tbox" type="text" name="q" id="q" size="31" />
+        <input class="btn" type="image" name="sa" value="Search" src="/static/default/images/search.gif" alt="Search" />
+      </p>
+    </form>
+    <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=quick-search&amp;lang=en"></script>
+	</div></div>
+	<div id="content-outer"><div id="content-wrapper" class="container_16">
+		<div id="main" class="grid_12">
+      
+  <h2>Edit Post</h2>
+  <form method="post" action="">
+    <table>
+      <tr><th><label for="name">Title:</label></th><td><input type="text" id="name" value="A beautiful new sky" name="title" /></td></tr>
+<tr><th><label for="message">Body:</label></th><td><textarea rows="10" cols="20" name="body" id="message">&lt;p&gt;I found a little time over the past couple of days to have a fiddle with Cities in the Sky, but since I&#39;m an idiot I didn&#39;t concentrate on sorting out the physics. Instead, I farted around with Perlin noise and atmospheric scattering and made the sky beautiful :). Take a look at the new screenshots and see for yourself. The second one has a stupidly powerful bloom effect, which frankly looks a bit rubbish, so I&#39;m going to either turn it off or tone it down a lot. Hopefully I can figure out how to &#39;do&#39; shaders - I basically just took the code from the OGRE wiki!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/38367409@N02/3538787562/&quot; title=&quot;2007-03-28 by b.hymers, on Flickr&quot;&gt;&lt;img src=&quot;http://farm3.static.flickr.com/2213/3538787562_419f546973.jpg&quot; width=&quot;500&quot; height=&quot;375&quot; alt=&quot;2007-03-28&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Some technical details, since I know some of you like that sort of thing:&lt;/p&gt;
+
+&lt;p&gt;The clouds are generated using &lt;a href=&quot;http://libnoise.sourceforge.net&quot;&gt;libnoise&lt;/a&gt;, a rather wonderful library capable of generating perlin noise and doing all sorts of clever things with it. I have to say, it&#39;s an excellently written library, every bit as easy and intuitive to use as OPAL. At the moment, the clouds are generated in another little application that I wrote, and loaded in when CITS starts, rather than generated on the fly. This is because at the resolution I&#39;m generating them (1024x1024), the whole process takes around 10 seconds, and also because libnoise does something odd with the alpha channel (Most of my time recently has been spent scratching my head whilst looking at black skies). I&#39;ve used a few filters on the raw perlin - namely terracing and a power function. I was using &lt;a href=&quot;http://freespace.virgin.net/hugo.elias/models/m_clouds.htm&quot;&gt;this handy article&lt;/a&gt; on clouds as a guide, I highly recommend it if you need to generate clouds or are procrastinating.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/38367409@N02/3538787718/&quot; title=&quot;2007-03-28b by b.hymers, on Flickr&quot;&gt;&lt;img src=&quot;http://farm4.static.flickr.com/3602/3538787718_9e3c4f985a.jpg&quot; width=&quot;500&quot; height=&quot;375&quot; alt=&quot;2007-03-28b&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, as you may have noticed from the screenshots, the noise isn&#39;t tiled yet, resulting in odd seams in the sky. I may need to fiddle around with the source of libnoise to get it to tile the noise, or I may just partake in some Photoshop trickery, though that would rule out generating the clouds in the application completely.&lt;/p&gt;
+
+&lt;p&gt;As for the rest of the sky, I simply used &lt;a href=&quot;http://www.planetside.co.uk/terragen/&quot;&gt;Terragen&lt;/a&gt; to render an environment without clouds or a landscape, and fiddled the atmosphere settings slightly to get a nice haze, horizon and glare from the sun. Maybe I&#39;ll add in some lens flare soon to show off, if it doesn&#39;t look too cheesy. Again there&#39;s an annoying drawback though - since Terragen expects you to be rendering a landscape, it doesn&#39;t bother to generate sky below you, so there&#39;s an oddly shaped black space below the camera. This will be fixed by more Photoshop jiggery-pokery when I get round to it.&lt;/p&gt;
+
+&lt;p&gt;Enough about the sky though - Remember when I told you I didn&#39;t bother to fix the physics, all those paragraphs ago? Well, that was a bit of a fib. Actually I&#39;ve tweaked them to the point where it looks quite nice and doesn&#39;t explode (even Tim says it&#39;s looking swish), though there&#39;s still a little way to go before I&#39;m ready to upload a video. Also, I need to stop the random crashes, else the video will be quite short. Still, it&#39;s getting there... slowly.&lt;/p&gt;</textarea></td></tr>
+<tr><th><label for="id_tags">Tags:</label></th><td><textarea id="id_tags" rows="5" cols="20" name="tags">cities-in-the-sky</textarea></td></tr>
+<tr><th><label for="id_body_markup">Body markup:</label></th><td><select name="body_markup" id="id_body_markup">
+<option value="txt">Plain Text</option>
+<option value="textile">Textile</option>
+<option value="html" selected="selected">HTML</option>
+<option value="markdown">Markdown</option>
+<option value="rst">ReStructuredText</option>
+</select></td></tr>
+<tr><th><label for="id_draft">Draft:</label></th><td><input type="checkbox" name="draft" id="id_draft" /></td></tr>
+    </table>
+    <input type="submit" value="Submit post" />
+  </form>
+
+		</div>
+		<div id="left-columns" class="grid_4">
+      
+
+     
+
+
+
+
+		</div>		
+	</div></div>
+	<div id="footer-wrapper" class="container_16">
+		<div id="footer-bottom">
+			<p class="bottom-left">			
+			&nbsp; &copy; Ben Hymers &nbsp; &nbsp;
+			Design by : <a href="http://www.styleshout.com/">styleshout</a>												
+			</p>	
+			<p class="bottom-right" >
+				<a href="/">Home</a> |
+        <a href="
+	        /feeds/atom.xml
+	      ">Atom</a> |
+				<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | 
+		   	<a href="http://validator.w3.org/check/referer">XHTML</a>
+			</p>
+		</div>	
+	</div>
+
+</body>
+</html>

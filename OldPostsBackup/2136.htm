@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Edit Post</title>
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/screen.css" />
+  
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/pygments_friendly.css" />
+  
+  <link rel="alternate" type="application/atom+xml" 
+	href="/feeds/atom.xml" />
+  <link rel="SHORTCUT ICON" href="/static/default/favicon.ico"/>
+  <link rel="SHORTCUT ICON" href="/favicon.ico"/>
+  
+
+  
+
+  
+</head>
+<body>
+	<div id="header-wrap"><div id="header" class="container_16">						
+		<h1 id="logo-text"><a href="/" title="">Ben&#39;s blog</a></h1>		
+		<p id="intro">Software development, games, and all that jazz</p>
+		<div  id="nav">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/archive/">Archive</a></li>
+        
+  <li><a href="/admin/posts">Posts</a></li>
+  <li><a href="/admin/pages">Pages</a></li>
+
+			</ul>
+		</div>		
+		<div id="header-image"></div> 
+    <form id="quick-search" action="/search" method="get">
+      <p>
+        <label for="q">Search:</label>
+        <input type="hidden" name="cref" value="http://blog.benhymers.com/cse.xml" />
+        <input type="hidden" name="cof" value="FORID:11" />
+        <input type="hidden" name="ie" value="UTF-8" />
+        <input class="tbox" type="text" name="q" id="q" size="31" />
+        <input class="btn" type="image" name="sa" value="Search" src="/static/default/images/search.gif" alt="Search" />
+      </p>
+    </form>
+    <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=quick-search&amp;lang=en"></script>
+	</div></div>
+	<div id="content-outer"><div id="content-wrapper" class="container_16">
+		<div id="main" class="grid_12">
+      
+  <h2>Edit Post</h2>
+  <form method="post" action="">
+    <table>
+      <tr><th><label for="name">Title:</label></th><td><input type="text" id="name" value="Good news for geeks that like sky cities" name="title" /></td></tr>
+<tr><th><label for="message">Body:</label></th><td><textarea rows="10" cols="20" name="body" id="message">&lt;p&gt;So, I&#39;ve done a lot of things since I last wrote here. Here&#39;s a waffly overview:&lt;/p&gt;
+
+&lt;p&gt;I&#39;m refactoring like a beast (a beast that&#39;s good at refactoring), and the code is now looking rather spiffy. It builds super-fast too. Though I haven&#39;t that much time available to work on the game, my time at work is helping me spot all sorts of new opportunities to clean things up, and increasing my C++ experience massively. I&#39;m now at a point where I&#39;m actually giving advice to others, and people come to me for my opinions and advice on coding matters. Yay!&lt;/p&gt;
+
+&lt;p&gt;A few months back (I probably should have blogged this) I added in a few new input methods just for fun, since tapping an arrow key once per square was getting tedious. It&#39;s now continuous over a grid, which is nice. I tried continuous over a grid where the island spins with the left/right movement of the cursor too, but that just felt weird. I&#39;d like to go back to that some time soon since it means you can use a much lower camera angle and expose more of the beautiful sky, rather than having ugly grey clouds in the background.&lt;/p&gt;
+
+&lt;p&gt;I&#39;ve also been getting rather geeky as of late; it all started when I bought a new PC (with the wads of cash I have lying around nowadays) and set up my old one with &lt;a href=&quot;http://www.ubuntu.com/&quot;&gt;Ubuntu&lt;/a&gt; Linux to use as a server. I first set up &lt;a href=&quot;http://subversion.tigris.org/&quot;&gt;SVN&lt;/a&gt;, served to the rest of my network via &lt;a href=&quot;http://www.apache.org/&quot;&gt;Apache&lt;/a&gt;. That was pretty easy, and didn&#39;t really offer much more than I was getting already with a local SVN installation, so I added issue tracking in the form of &lt;a href=&quot;http://trac.edgewall.org/&quot;&gt;Trac&lt;/a&gt; and &lt;a href=&quot;http://retrospectiva.org/blog&quot;&gt;Retrospectiva&lt;/a&gt;. I&#39;m mostly using Retrospectiva since it&#39;s a bit more simple and pretty, but the installation was a bitch and I&#39;m finding Trac is more customisable to my needs. I&#39;m definately regretting this now, since it seems that Retrospectiva-&gt;Trac migration is non-existant. Anyways, this has helped me properly document and catalogue ideas, tasks and so on, which is great. Instead of farting around for ages and ultimately implementing something completely unnecessarily, I can sort by priority and get on with whatever&#39;s most important. If I encounter something whilst coding, I can log it and carry on with what I was doing, rather than going off on a tangent and getting lost as usual.&lt;/p&gt;
+
+&lt;p&gt;Next, since I could see where I was heading with all this, I decided to change the build process. I needed something cross-platform, fast, elegant, and able to support what I&#39;m doing fully. I went through absolutely loads of possibilities, which all fell short for one reason or another - it seems that there&#39;s no clear winner when it comes to C++ build systems. &lt;a href=&quot;http://www.gamesfromwithin.com/articles/0506/000092.html&quot;&gt;Noel Llopis&#39;&lt;/a&gt; &lt;a href=&quot;http://www.gamesfromwithin.com/articles/0509/000100.html&quot;&gt;articles&lt;/a&gt; were of great help in weeding out some otherwise tasty-looking options (&lt;a href=&quot;http://www.scons.org/&quot;&gt;SCons&lt;/a&gt; for example - my team used this for a &lt;a href=&quot;http://www.stereoshift.net/&quot;&gt;university project&lt;/a&gt;, but Noel&#39;s articles show it as painfully slow, which I&#39;d agree with). I almost went with &lt;a href=&quot;http://www.perforce.com/jam/jam.html&quot;&gt;Jam&lt;/a&gt;, but decided against it as the documentation is rather bad, and it&#39;s completely dead now so there&#39;s no hope of getting any support for it. In the end I chose &lt;a href=&quot;http://ant.apache.org/&quot;&gt;Apache Ant&lt;/a&gt; with the &lt;a href=&quot;http://ant-contrib.sourceforge.net/cc.html&quot;&gt;cc&lt;/a&gt; task from &lt;a href=&quot;http://ant-contrib.sourceforge.net/&quot;&gt;ant-contrib&lt;/a&gt;, which is cross-platform thanks to Java, relatively fast despite this, has plenty of useful features and the possibility to add more via extensions, and has a nice (if very verbose) syntax - XML. I like the idea of using XML to specify the build declaratively, but I find that with a C++ project there are plenty of options that would be much better specified using a proper programming language. For example, the directories where external libraries can be found are different depending on the platform, and the names of those libraries are different depending on whether you&#39;re compiling in debug or release, which can result in a lot of conditional logic, something XML does in a very clunky manner. Anyway, the Ant buildscript is now working, and working well.&lt;/p&gt;
+
+&lt;p&gt;The next thing I did was fix things to build CITS on Linux. This turned out to actually be quite straight-forward, even a little enjoyable. I found myself really getting to grips with the command line, so much so that in the end I was working remotely via &lt;a href=&quot;http://en.wikipedia.org/wiki/Secure_Shell&quot;&gt;SSH&lt;/a&gt; rather than using &lt;a href=&quot;http://www.gnome.org/&quot;&gt;Gnome&lt;/a&gt; on the server to do things. It&#39;s quite nice that if you discover you don&#39;t have some piece of software required for something that you can just use apt-get and have it in seconds, rather than loading Firefox, finding the project website, downloading it, extracting, installing, configuring and finally getting back to what you were doing beforehand. Also, ./configure, make and make install is more elegant than I&#39;d assumed, and I like the idea of things installing to common locations such as /usr/local/include. Nice. So anyway, I made some minor changes to the code, fiddled around a little with building dependencies (&lt;a href=&quot;http://www.ogre3d.org/&quot;&gt;OGRE&lt;/a&gt; was a bit of a pain, though building from scratch was *far* quicker than on Windows), and now CITS builds and runs on Linux!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/38367409@N02/3537978547/&quot; title=&quot;2008-03-02 by b.hymers, on Flickr&quot;&gt;&lt;img src=&quot;http://farm3.static.flickr.com/2410/3537978547_92ca17d9a8.jpg&quot; width=&quot;500&quot; height=&quot;400&quot; alt=&quot;2008-03-02&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So, what I&#39;m doing now is setting up a continuous integration server in the form of &lt;a href=&quot;http://www.zutubi.com/products/pulse/&quot;&gt;Pulse&lt;/a&gt; from &lt;a href=&quot;http://www.zutubi.com/&quot;&gt;Zutubi&lt;/a&gt;. It looks to be a very simple, clean, yet fully-featured continuous integration environment, which provides exactly what I need and not a lot more, which is great. Once that&#39;s done the next system-ish thing I&#39;ll be doing is setting up &lt;a href=&quot;http://en.wikipedia.org/wiki/Automated_testing&quot;&gt;automated testing&lt;/a&gt; (both unit and functional tests), hooked into the build and integration systems, and then I&#39;ll have pretty much my ideal setup!&lt;/p&gt;
+
+&lt;p&gt;Now, you&#39;ll probably have noticed that this post has been one long geek-fest without any mention of real progress in terms of the game itself. Another thing work has made me realise is what a fool I&#39;ve been so far - since I didn&#39;t have these systems set up to aid me I&#39;ve only been able to see two feet in front of my nose and have been implementing all the unimportant things first. Really I should be tackling the high-risk, high business-value features first, to see whether the game is going to be any fun. As such, the next thing I do won&#39;t be to check out bloom again or add particle effects or revamp the state system, it&#39;ll be to get some people on the island. No more farting around :)&lt;/p&gt;</textarea></td></tr>
+<tr><th><label for="id_tags">Tags:</label></th><td><textarea id="id_tags" rows="5" cols="20" name="tags">cities-in-the-sky</textarea></td></tr>
+<tr><th><label for="id_body_markup">Body markup:</label></th><td><select name="body_markup" id="id_body_markup">
+<option value="txt">Plain Text</option>
+<option value="textile">Textile</option>
+<option value="html" selected="selected">HTML</option>
+<option value="markdown">Markdown</option>
+<option value="rst">ReStructuredText</option>
+</select></td></tr>
+<tr><th><label for="id_draft">Draft:</label></th><td><input type="checkbox" name="draft" id="id_draft" /></td></tr>
+    </table>
+    <input type="submit" value="Submit post" />
+  </form>
+
+		</div>
+		<div id="left-columns" class="grid_4">
+      
+
+     
+
+
+
+
+		</div>		
+	</div></div>
+	<div id="footer-wrapper" class="container_16">
+		<div id="footer-bottom">
+			<p class="bottom-left">			
+			&nbsp; &copy; Ben Hymers &nbsp; &nbsp;
+			Design by : <a href="http://www.styleshout.com/">styleshout</a>												
+			</p>	
+			<p class="bottom-right" >
+				<a href="/">Home</a> |
+        <a href="
+	        /feeds/atom.xml
+	      ">Atom</a> |
+				<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | 
+		   	<a href="http://validator.w3.org/check/referer">XHTML</a>
+			</p>
+		</div>	
+	</div>
+
+</body>
+</html>

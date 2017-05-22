@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Edit Post</title>
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/screen.css" />
+  
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/default/css/pygments_friendly.css" />
+  
+  <link rel="alternate" type="application/atom+xml" 
+	href="/feeds/atom.xml" />
+  <link rel="SHORTCUT ICON" href="/static/default/favicon.ico"/>
+  <link rel="SHORTCUT ICON" href="/favicon.ico"/>
+  
+
+  
+
+  
+</head>
+<body>
+	<div id="header-wrap"><div id="header" class="container_16">						
+		<h1 id="logo-text"><a href="/" title="">Ben&#39;s blog</a></h1>		
+		<p id="intro">Software development, games, and all that jazz</p>
+		<div  id="nav">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/archive/">Archive</a></li>
+        
+  <li><a href="/admin/posts">Posts</a></li>
+  <li><a href="/admin/pages">Pages</a></li>
+
+			</ul>
+		</div>		
+		<div id="header-image"></div> 
+    <form id="quick-search" action="/search" method="get">
+      <p>
+        <label for="q">Search:</label>
+        <input type="hidden" name="cref" value="http://blog.benhymers.com/cse.xml" />
+        <input type="hidden" name="cof" value="FORID:11" />
+        <input type="hidden" name="ie" value="UTF-8" />
+        <input class="tbox" type="text" name="q" id="q" size="31" />
+        <input class="btn" type="image" name="sa" value="Search" src="/static/default/images/search.gif" alt="Search" />
+      </p>
+    </form>
+    <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=quick-search&amp;lang=en"></script>
+	</div></div>
+	<div id="content-outer"><div id="content-wrapper" class="container_16">
+		<div id="main" class="grid_12">
+      
+  <h2>Edit Post</h2>
+  <form method="post" action="">
+    <table>
+      <tr><th><label for="name">Title:</label></th><td><input type="text" id="name" value="Programming is fun" name="title" /></td></tr>
+<tr><th><label for="message">Body:</label></th><td><textarea rows="10" cols="20" name="body" id="message">&lt;p&gt;Now that I&#39;ve had a few days to do things other than search for jobs or flats, I&#39;m getting back into the swing of development again, and really quite enjoying it. I&#39;ve had an epiphany of sorts and seem to be able to actually program really quite well, as big-headed as that sounds.&lt;/p&gt;
+
+&lt;p&gt;Previously I&#39;d be able to write code to do all sorts of stuff, but after a while it&#39;d start getting tangled up with itself, surrounded by unnecessary crud, and development would grind to a standstill until I could be bothered to press delete and start again, with that little bit more experience.&lt;/p&gt;
+
+&lt;p&gt;I took a look over the code of CITS and decided something had to be done - there were ugly dependencies everywhere, lots of huge objects and massive methods, things had far too many responsibilities and so on and so forth. Most of the rules of good design had been broken (consciously, as I figured they wouldn&#39;t matter on a small project). Adding a new building would have been a tremendous amount of work, let alone finishing the thing.&lt;/p&gt;
+
+&lt;p&gt;Now though, something has clicked and I&#39;m refactoring like a beast (beasts are good at refactoring, I&#39;ve decided). After not very long I started making small changes here and there, making sure I didn&#39;t break anything and kept it running identically as I went. First thing was to separate out the graphics code from buildings into a &quot;building graphics&quot; component, which went well. Then I separated out the physics in a similar way. Then I tidied up the building class, and re-arranged the dependencies of all the other classes to depend solely on the specific bits they needed. After each change, however small, I&#39;d compile and run it to check that things were working, then check the code in to the newly set up SVN repository. As I went, classes got more focused and small, dependencies started to make sense, the code got cleaner in general and compile times were reduced significantly. Dare I say it, the bits that I&#39;ve touched up are actually really quite good now. Refactoring is fun :)&lt;/p&gt;
+
+&lt;p&gt;Things aren&#39;t perfect of course; there are plenty more areas to refactor that are going to be a little more difficult (for example, the low-down bits of the island&#39;s physics depend on low-down bits of its graphics, since the physical representation of the island is built from the contents of the vertex buffer). Also, I kind of wish I had started off with good practices at the very beginning - it would be great to have a full suite of unit tests to ensure correct functionality rather than having to run the game every change, and an issue tracker would be very useful.
+
+&lt;p&gt;Anyway, the short of it is that CITS is back on track, and once I&#39;ve sorted out these slightly more tricky refactorings I&#39;ll be back to adding functionality and pumping out pretty screenshots for you people :) Don&#39;t be surprised if the new job and the move get in the way of things though!&lt;/p&gt;</textarea></td></tr>
+<tr><th><label for="id_tags">Tags:</label></th><td><textarea id="id_tags" rows="5" cols="20" name="tags">cities-in-the-sky</textarea></td></tr>
+<tr><th><label for="id_body_markup">Body markup:</label></th><td><select name="body_markup" id="id_body_markup">
+<option value="txt">Plain Text</option>
+<option value="textile">Textile</option>
+<option value="html" selected="selected">HTML</option>
+<option value="markdown">Markdown</option>
+<option value="rst">ReStructuredText</option>
+</select></td></tr>
+<tr><th><label for="id_draft">Draft:</label></th><td><input type="checkbox" name="draft" id="id_draft" /></td></tr>
+    </table>
+    <input type="submit" value="Submit post" />
+  </form>
+
+		</div>
+		<div id="left-columns" class="grid_4">
+      
+
+     
+
+
+
+
+		</div>		
+	</div></div>
+	<div id="footer-wrapper" class="container_16">
+		<div id="footer-bottom">
+			<p class="bottom-left">			
+			&nbsp; &copy; Ben Hymers &nbsp; &nbsp;
+			Design by : <a href="http://www.styleshout.com/">styleshout</a>												
+			</p>	
+			<p class="bottom-right" >
+				<a href="/">Home</a> |
+        <a href="
+	        /feeds/atom.xml
+	      ">Atom</a> |
+				<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | 
+		   	<a href="http://validator.w3.org/check/referer">XHTML</a>
+			</p>
+		</div>	
+	</div>
+
+</body>
+</html>
